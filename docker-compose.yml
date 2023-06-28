@@ -11,6 +11,8 @@ services:
       - bundle:/usr/local/bundle
     environment:
       - RAILS_ENV=development
+      - APP_DEFAULT_URL_HOST=localhost
+      - APP_DEFAULT_URL_PORT=3000
     depends_on:
       - mysql
     links:

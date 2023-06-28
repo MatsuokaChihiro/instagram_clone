@@ -1,3 +1,3 @@
-class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
+class Article < ApplicationRecord
+  validates :title, :content, presence: true
 end
