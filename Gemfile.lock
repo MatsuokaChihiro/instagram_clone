@@ -226,6 +226,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    tailwindcss-rails (2.0.29-aarch64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.2.0)
     timeout (0.3.2)
@@ -255,6 +257,7 @@ DEPENDENCIES
   rubocop-rspec
   solargraph
   sprockets-rails
+  tailwindcss-rails (~> 2.0)
   tzinfo-data
 
 RUBY VERSION

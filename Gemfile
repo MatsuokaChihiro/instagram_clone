@@ -24,3 +24,4 @@ group :development do
   gem 'rubocop-rspec'
   gem 'solargraph'
 end
+gem "tailwindcss-rails", "~> 2.0"

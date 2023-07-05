@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_024928) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_05_023136) do
+  create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.text "content"
+    t.text "content", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
@@ -45,12 +54,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_024928) do
   end
 
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "follow_id", null: false
     t.bigint "follower_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -59,16 +66,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_024928) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "nickname", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "direct_messages", "users"
   add_foreign_key "direct_messages", "users", column: "target_id"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "relationships", "users"
 end
