@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-  t.references :target, foreign_key: { to_table: :users }
-  has_one_attached :image
+  
+  has_one_attached :image, :title, :content, presence: true
 end
