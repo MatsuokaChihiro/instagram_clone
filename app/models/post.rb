@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
   
-  has_one_attached :image, :title, :content, presence: true
+  validates :description, presence: true
 end
