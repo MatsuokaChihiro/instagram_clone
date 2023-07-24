@@ -2,8 +2,7 @@
 
 FROM ruby:3.2.2
 
-RUN apt update -qq && apt install -y --no-install-recommends vim
-
+RUN apt update -qq && apt install -y --no-install-recommends vim libvips42
 ENV LANG=C.UTF-8
 
 WORKDIR /app

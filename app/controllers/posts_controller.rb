@@ -3,6 +3,10 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
+    def show
+        @post = Post.find(params[:id])
+    end
+    
     def create
         @post = Post.new(post_params)
         @post.user_id = 1
@@ -15,13 +19,14 @@ class PostsController < ApplicationController
     end
 
     def destroy
+        @post = Post.find(params[:id])
         @post.destroy
-        redirect_to posts_url, notice: "Post was successfully destroyed."
+        redirect_to root_url, notice: "Post was successfully destroyed."
     end
     
     private
     
     def post_params
-        params.require(:post).permit(:description)
+        params.require(:post).permit(:description, :thumbnail)
     end
 end

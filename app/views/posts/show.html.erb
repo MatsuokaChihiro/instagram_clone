@@ -1,0 +1,19 @@
+<div>
+
+  <% if @post.thumbnail.attached? %>
+  <p>
+    <strong>Thumbnail:</strong>
+    <%= image_tag @post.thumbnail %>
+  </p>
+<% end %>
+  <p>
+    <strong>Content:</strong>
+    
+    <%= @post.description %>
+  </p>
+  <%= button_to '削除', post_path(@post), method: :delete %>
+</div>
+
+<div>
+  <%= link_to "Back to posts", posts_path %>
+</div>

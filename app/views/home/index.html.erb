@@ -15,7 +15,7 @@
               </svg>
             </button>
           </div>
-          <%= image_tag 'ig-1.jpg', width: "4016", height: "6016" %>
+          <%= image_tag post.thumbnail %>
           <div class="flex items-center py-2">
             <button class="grid w-10 h-10 -ml-2 place-items-center hover:opacity-60">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -47,10 +47,8 @@
             </button>
           </div>
           <a class="block text-sm font-bold w-fit" href="#">いいね！95件</a>
-          <p class="text-sm line-clamp-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo
-            deleniti repudiandae exercitationem similique. Veritatis temporibus dolore nostrum voluptates error.
-            Commodi quisquam quae beatae dignissimos numquam amet delectus sapiente optio.</p>
-          <button class="text-sm text-gray-500">続きを読む</button>
+          <%= post.description %>
+          <%# <button class="text-sm text-gray-500">続きを読む</button> %>
         </article>
       <% end %>
     </div>
