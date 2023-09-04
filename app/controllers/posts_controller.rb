@@ -9,14 +9,13 @@ class PostsController < ApplicationController
     
     def create
         @post = Post.new(post_params)
-        @post.user_id = 1
     
-        if @post.save
-            redirect_to post_url(@post), notice: 'Post was successfully created.'
+        if @post
+          redirecto_to root_url
         else
-            render :new, status: :unprocessable_entity
+          render :new
         end
-    end
+      end
 
     def destroy
         @post = Post.find(params[:id])
